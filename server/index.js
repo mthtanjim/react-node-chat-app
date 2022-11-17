@@ -11,7 +11,7 @@ const server = http.createServer(app)
 //for backend...
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3001",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"]
     }
 })
@@ -21,7 +21,7 @@ const io = new Server(server, {
 
 //listening event in socket
 io.on("connection", (socket) => {
-    console.log("socket.id")
+    console.log(`User Connnected:  ${socket.id}`)
 
     socket.on("discounnect", ()=> {
         console.log("User Discounnected", socket.id)
@@ -30,6 +30,6 @@ io.on("connection", (socket) => {
 
 })
 
-server.listen(4001, () => {
-    console.log("SERVER RUNNING AT 4001")
+server.listen(4000, () => {
+    console.log("SERVER RUNNING AT 4000")
 })
