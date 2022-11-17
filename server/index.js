@@ -8,7 +8,7 @@ app.use(cors())
 
 const server = http.createServer(app)
 
-//for backend 
+//for backend...
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:3001",
