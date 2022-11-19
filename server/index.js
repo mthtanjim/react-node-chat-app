@@ -21,10 +21,18 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
     console.log(`User Connnected:  ${socket.id}`)
 
+    socket.on("join_room", (data) => {
+        socket.join(data)
+        console.log(`User with id: ${socket.id} joined room ${data}`)
+    })
+
+    socket.on("send_message", (data)=> {
+         console.log(data)
+    })
+
     socket.on("discounnect", ()=> {
         console.log("User Discounnected", socket.id)
     })
-
 
 })
 
